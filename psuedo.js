@@ -49,4 +49,3 @@
 
 // my Garden page 3
     // div id="card-display"
-
