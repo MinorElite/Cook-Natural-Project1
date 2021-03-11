@@ -1,0 +1,46 @@
+.responsive{
+    width: 100%;
+    height: auto
+}
+
+
+title {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: bolder;
+}
+
+.MyRecipes{
+font-family: Arial, Helvetica, sans-serif;
+color: white;
+
+
+}
+.navbar {
+    position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: green;
+  border: 2px solid #4caf4f00;
+}
+
+.searchBar {
+    border: white;
+    border-radius: 60px;
+    margin: auto;
+  padding: 10px;
+  position: relative;
+  top: 180px;
+  left: 80px;
+}
+
+.pagetitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: white;
+  margin: auto;
+  width: 50%;
+  padding: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 100px;
+}
