@@ -114,7 +114,7 @@ function renderResults(recName, recYeild, recTime, recImage, recURL) {
 
   var listCol = document.createElement('div');
   listCol.setAttribute('class', 'message-body');
-  resultCol.appendChild(listCol);
+  resultHeader.appendChild(listCol);
 
   var list = document.createElement('ul');
   listCol.appendChild(list);
