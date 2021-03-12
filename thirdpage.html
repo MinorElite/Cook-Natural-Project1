@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script src="https://developer.edamam.com/attribution/badge.js"></script>
   <link rel="stylesheet" href="./assets/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <meta charset="UTF-8">
@@ -12,15 +13,124 @@
 
 
 <body>
-  <div class="card">
-    <div class="card-content">
-      <div class="content">
-        this is a card containg the food u wish to eat
-       
+  <section class="hero is-primary is-small">
+    <div class="hero-body">
+      <p class="title">
+        cookNatrl
+      </p>
+      <p class="subtitle">
+        my selction of recipes
+      </p>
+    </div>
+  </section>
+  <nav class="navbar is-success" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="">
+        <h1>cookNTRL</h1>
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div class="navbar-menu">
+      <div class="navbar-start ">
+        <a class="navbar-item">
+          Home
+        </a>
+  
+        <a class="navbar-item">
+          Documentation
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More
+          </a>
+  
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              About
+            </a>
+            <a class="navbar-item">
+              Jobs
+            </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light">
+              Log in
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+  </nav>
+ <!-- container for cards don't mess with this -->
+  <div class="container is-widescreen ">
+    <div class="columns is-multiline card-column">
+
+      <!-- Card Column -->
+      <div class="column is-one-quarter">
+        <!-- Card Element -->
+        <div class="card mt-3">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">John Smith</p>
+                <p class="subtitle is-6">@johnsmith</p>
+              </div>
+            </div>
+
+            <div class="content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+              <a href="#">#css</a> <a href="#">#responsive</a>
+              <br>
+              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
   </div>
-  <div class="modal">
+
+
+  <!-- modal begins -->
+  <div class="modal" id="">
     <!-- is-active needed to pop up-->
     <div class="modal-background"></div>
     <div class="modal-card">
@@ -38,6 +148,17 @@
     </div>
   </div>
   <!-- <script src="./assets/script.js"></script> -->
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>CookNATURAL</strong> by <a href="https://i.redd.it/l3nfcaja1gl11.jpg">No 1 Stunnas .llc</a>. The source code is licensed
+        <a href="https://www.denofgeek.com/wp-content/uploads/2019/09/kermit-the-frog.jpg?fit=1200%2C800">Kermit T. Frog</a>. The website content
+        is licensed <a href="https://lh3.googleusercontent.com/proxy/3KwlffjYohDM_Jw-jei57IyNODg9YJlR4p3s7p02Yf_TFJKaAqcFuTjcOP22jwrwL_GUn_SccpiBXFcLdWeNxqqNnvCPZgeDRouKmtv4evep8X66n6m4SM-S5bdqg9Ap">this very sad bear</a>.
+        <div id="edamam-badge" data-color="white"></div>
+      </p>
+    </div>
+  </footer>
 </body>
 
 </html>
