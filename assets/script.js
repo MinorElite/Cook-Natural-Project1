@@ -56,13 +56,13 @@ function recipeSearch(ingredient) {
   console.log('function recipeSearch working');
   var recipeSearchURL = 'https://api.edamam.com/search?q=' + ingredient + '&app_id=' + recipeID + '&app_key=' + recipeKey + '&from=0&to=10&calories=591-722&health=alcohol-free'
   
-  //fetch(recipeSearchURL)
-    //.then(function (response) {
-      //if (response.ok) {
-        //response.json().then(function (data) {
-          //console.log(data);
-          // var recipeArray = data.hits;
-          //for( i = 0; i < data.hits.length; i++) {
+  fetch(recipeSearchURL)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          console.log(data);
+          var recipeArray = data.hits;
+          for( i = 0; i < data.hits.length; i++) {
             //var title = data.hits[i].recipe.label;
             //var yield = data.hits[i].recipe.yield;
             //var ingredients = data.hits[i].recipe.ingredientLines;
@@ -79,15 +79,15 @@ function recipeSearch(ingredient) {
           }
           
         
-        //});
-      //} else {
-        //alert('Error: ' + response.statusText);
-     // }
-    //})
-    //.catch(function (error) {
+        });
+      } else {
+        alert('Error: ' + response.statusText);
+      }
+    })
+    .catch(function (error) {
       //alert('Unable to connect to edamam recipe index');
-    //});
-//}
+    });
+}
 
 //creates each search result block and assigns 
 function renderResults(recName, recYeild, recTime, recImage, recURL) {
@@ -149,7 +149,7 @@ function renderResults(recName, recYeild, recTime, recImage, recURL) {
 
 
 
-recipeSearch('pecans');        //recipe search test
+recipeSearch('walnuts');        //recipe search test
 
 // function demoGetNutritionFacts(title, yield, ingredients) {
 
@@ -209,5 +209,5 @@ fetch(postURL, {
   console.error('Error:', error);
 });
 
-//}
+}
 // getNutritionFacts();
