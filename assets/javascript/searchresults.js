@@ -58,7 +58,7 @@ function renderResults(recName, recYeild, recTime, recImage, recURL) {
   resultBlock.appendChild(resultCol);
 
   var resultHeader = document.createElement('article');
-  resultHeader.setAttribute('class', 'message is-primary');
+  resultHeader.setAttribute('class', 'message is-success');
   resultCol.appendChild(resultHeader);
 
   var resultHeaderText = document.createElement('div');
@@ -137,7 +137,7 @@ function renderResults(recName, recYeild, recTime, recImage, recURL) {
   buttonRow.appendChild(buttonCol1);
 
   var linkButton = document.createElement('button');
-  linkButton.setAttribute('class', 'button is-primary');
+  linkButton.setAttribute('class', 'button is-success');
   linkButton.textContent = 'Go to recipe';
   linkButton.addEventListener('click', function(){
     window.open(recURL)
@@ -149,9 +149,9 @@ function renderResults(recName, recYeild, recTime, recImage, recURL) {
   buttonRow.appendChild(buttonCol2);
 
   var addButton = document.createElement('button');
-  addButton.setAttribute('class', 'button is-primary');
+  addButton.setAttribute('class', 'button is-success');
   addButton.textContent = 'Add to recipe book';
-  addButton.addEventListener('click', addRecipe());
+  addButton.addEventListener('click', addRecipe);
   buttonCol2.appendChild(addButton);
 
   //end button block
