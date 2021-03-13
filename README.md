@@ -18,5 +18,5 @@ WHEN I revisit the site, I can view my saved recipes and information
 WHEN I click on the modal, I see nutrition facts
 
 
-For this project we used 2 API's
+For this project we used 2 API's from EDAMAM. The specific API's used are Nutrition Analysis anf Food Database Lookup. 
  # link to project
