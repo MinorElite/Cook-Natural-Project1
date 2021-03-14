@@ -1,9 +1,9 @@
 .hero {
   background-color: rgb(13, 158, 115);
   color: white;
-font-family: 'Montserrat', sans-serif;
-font-weight: bolder;
-font-size: xx-large;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  font-size: xx-large;
 }
 #fancyhero {
   height: 800px;
