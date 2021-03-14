@@ -7,7 +7,7 @@ var searchForm = document.querySelector('#recipe-search-form');
 var searchInput = document.querySelector('#search-input');
 var resultsContainer = document.querySelector('#results-container');
 var recipeBookButton = document.querySelector('#recipe-book-button');
-var recipeList = [];//JSON.parse(localStorage.getItem('saved-recipes'));
+var recipeList = [];
 var searchIngredient;
 
 function displayResults() {
@@ -111,6 +111,16 @@ function renderResults(recName, recSource, recYeild, recTime, recImage, recURL, 
   var yieldText = document.createElement('p');
   yieldText.textContent = 'about ' + recYeild;
   yieldEl.appendChild(yieldText);
+  //source
+  var sourceEl = document.createElement('li')
+  listEl.appendChild(sourceEl);
+  var sourceStrong = document.createElement('strong');
+  sourceStrong.textContent = 'Source: ';
+  sourceEl.appendChild(sourceStrong);
+  
+  var sourceText = document.createElement('p');
+  sourceText.textContent = recSource;
+  sourceEl.appendChild(sourceText);
 
   //end list  block
 
