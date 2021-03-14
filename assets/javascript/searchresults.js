@@ -7,12 +7,13 @@ var searchForm = document.querySelector('#recipe-search-form');
 var searchInput = document.querySelector('#search-input');
 var resultsContainer = document.querySelector('#results-container');
 var recipeBookButton = document.querySelector('#recipe-book-button');
+var recipeList = [];//JSON.parse(localStorage.getItem('saved-recipes'));
 var searchIngredient;
 
 function displayResults() {
   var searchIngredient = JSON.parse(localStorage.getItem('search-ingredient'));
   console.log('function recipeSearch working');
-  var recipeSearchURL = 'https://api.edamam.com/search?q=' + searchIngredient + '&app_id=' + recipeID + '&app_key=' + recipeKey + '&from=0&to=10&calories=591-722&health=alcohol-free'
+  var recipeSearchURL = 'https://api.edamam.com/search?q=' + searchIngredient + '&app_id=' + recipeID + '&app_key=' + recipeKey + '&from=0&to=10'
   
   fetch(recipeSearchURL)
     .then(function (response) {
@@ -21,34 +22,29 @@ function displayResults() {
           console.log(data);
           var recipeArray = data.hits;
           for( i = 0; i < data.hits.length; i++) {
-            //var title = data.hits[i].recipe.label;
-            //var yield = data.hits[i].recipe.yield;
-            //var ingredients = data.hits[i].recipe.ingredientLines;
             
             var recName = data.hits[i].recipe.label;
+            var recSource = data.hits[i].recipe.source;
             var recYeild = data.hits[i].recipe.yield;
             var recTime = data.hits[i].recipe.totalTime;
             var recImage = data.hits[i].recipe.image;
             var recURL = data.hits[i].recipe.url;
-            
-            // console.log(i.recipe.ingredientLines);
-            renderResults(recName, recYeild, recTime, recImage, recURL);
-            
+            var recIngs = data.hits[i].recipe.ingredientLines;
+
+            renderResults(recName, recSource, recYeild, recTime, recImage, recURL, recIngs);
           }
-          
-        
         });
       } else {
         alert('Error: ' + response.statusText);
       }
     })
     .catch(function (error) {
-      //alert('Unable to connect to edamam recipe index');
+      alert('Unable to connect to edamam recipe index');
     });
 }
 
 //creates each search result block and assigns 
-function renderResults(recName, recYeild, recTime, recImage, recURL) {
+function renderResults(recName, recSource, recYeild, recTime, recImage, recURL, recIngs) {
   var resultBlock = document.createElement('div');
   resultBlock.setAttribute('class','columns');
   resultsContainer.appendChild(resultBlock);
@@ -65,9 +61,6 @@ function renderResults(recName, recYeild, recTime, recImage, recURL) {
   resultHeaderText.setAttribute('class', 'message-header');
   resultHeaderText.textContent = recName;
   resultHeader.appendChild(resultHeaderText);
-
-  // var listBlock = document.createElement('div');
-  // listBlock.setAttribute('class', 'columns');
 
   var resultBody = document.createElement('div');
   resultBody.setAttribute('class', 'message-body');
@@ -156,13 +149,26 @@ function renderResults(recName, recYeild, recTime, recImage, recURL) {
 
   //end button block
   
-  
-  function linkRecipe(){
-    window.open(recUrl);
-  }
-  
   function addRecipe() {
-    console.log('This function does not work yet');
+    var savedRecipes = JSON.parse(localStorage.getItem('saved-recipes'));
+    if (savedRecipes !== null) {
+      recipeList = savedRecipes;
+      console.log(recipeList);
+    }
+
+    var recipeInfo = {
+      'recipeLabel': recName,
+      'recipeSource': recSource,
+      'recipeYield': recYeild,
+      'recipeTime': recTime,
+      'recipeImage': recImage,
+      'recipeIngredients': recIngs,
+      'recipeUrl': recURL
+    }
+    recipeList.push(recipeInfo);
+    localStorage.setItem('saved-recipes', JSON.stringify(recipeList));
+    console.log(recName + ' added to recipe list');
+    console.log(recipeList);
   }
 }
 
