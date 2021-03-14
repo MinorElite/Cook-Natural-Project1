@@ -18,42 +18,72 @@
 
 
 <body>
-  <!-- hero-->
-  <section class="hero-section">
-    <div class="hero-head">
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
+   <!-- hero-->
+
+
+
+  <nav class="navbar is-success" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="">
+        <h1>cookNTRL</h1>
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div class="navbar-menu">
+      <div class="navbar-start ">
+        <a class="navbar-item" href="index.html">
+          Home
+        </a>
+  
+        <a class="navbar-item" href="thirdpage.html">
+          MyCookbook
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More
+          </a>
+  
+          <div class="navbar-dropdown">
             <a class="navbar-item">
+              About
+            </a>
+            <a class="navbar-item">
+              Jobs
+            </a>
+            <a class="navbar-item">
+              Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
             </a>
           </div>
-          <div id="navbarMenuHeroA" class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item is-active" rel="stylesheet" href="thirdpage.html">
-                My Recipes
-              </a>
-
-              </a>
-              <span class="navbar-item">
-
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </section>
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <p class="title">
-        <div class="header" id="myHeader">
-          cookingNatural
-          </p>
         </div>
       </div>
-  </section>
-  <!-- hero end-->
-  <!-- container for cards don't mess with this -->
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light">
+              Log in
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+ <!-- container for cards don't mess with this -->
   <div class="container is-widescreen ">
     <div class="columns is-multiline card-column" id="card-field">
 
@@ -128,7 +158,7 @@
     </div>
   </div>
   <div class="modal">
-
+   
     <!-- is-active needed to pop up-->
     <div class="modal-background"></div>
     <div class="modal-card">
@@ -145,8 +175,6 @@
       </footer>
     </div>
   </div>
-  <!-- <script src="./assets/script.js"></script> -->
-
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
@@ -161,6 +189,7 @@
       </p>
     </div>
   </footer>
+   <!-- <script src="./assets/script.js"></script> -->
 </body>
 
 </html>
