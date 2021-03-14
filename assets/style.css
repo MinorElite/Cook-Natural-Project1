@@ -5,6 +5,20 @@ font-family: 'Montserrat', sans-serif;
 font-weight: bolder;
 font-size: xx-large;
 }
-.button{
-  color: black;
+#fancyhero {
+  height: 800px;
+  background-size: contain;
+  bottom: 0px;
+  background-repeat: no-repeat;
+
+}
+
+.form-box {
+  background: transparent;
+}
+
+.main-body{
+  background-image: url("./Images/CookingNTRLProject-01.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
