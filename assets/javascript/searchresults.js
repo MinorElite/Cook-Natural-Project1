@@ -11,7 +11,7 @@ var searchIngredient;
 function displayResults() {
   var searchIngredient = JSON.parse(localStorage.getItem('search-ingredient'));
   console.log('function recipeSearch working');
-  var recipeSearchURL = 'https://api.edamam.com/search?q=' + searchIngredient + '&app_id=' + recipeID + '&app_key=' + recipeKey + '&from=0&to=10'
+  var recipeSearchURL = 'https://api.edamam.com/search?q=' + searchIngredient + '&app_id=' + recipeID + '&app_key=' + recipeKey + '&from=0&to=20'
   
   fetch(recipeSearchURL)
     .then(function (response) {
