@@ -16,141 +16,188 @@
 </head>
 
 <body>
-   <!-- hero-->
+  <!-- hero-->
 
 
 
-    <!--new navbar-->
-    <nav class="navbar is-success" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item">
-          <img src="./assets/Images/CookingNTRL-07.png">
+  <!--new navbar-->
+  <nav class="navbar is-success" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <img src="./assets/Images/CookingNTRL-07.png">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="index.html">
+          Home
         </a>
-  
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+
+        <a class="navbar-item is-active" href="">
+          MyCookbook
         </a>
       </div>
-  
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item" href="index.html">
-            Home
-          </a>
-  
-          <a class="navbar-item is-active" href="">
-            MyCookbook
-          </a>
-        </div>
-  
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">
-                Log in
-              </a>
-            </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light">
+              Log in
+            </a>
           </div>
         </div>
       </div>
-    </nav>
- <!-- container for cards don't mess with this -->
+    </div>
+  </nav>
+
+  <!-- container for cards don't mess with this -->
   <div class="container is-widescreen ">
     <div class="columns is-multiline card-column" id="card-field">
 
-      <!-- Card Column -->
-      <!-- <div class="column is-one-quarter">
-       
-        <div class="card mt-3">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="./assets/Images/AdobeStock_248929619.jpeg" alt="Placeholder image">
-            </figure>
+    </div>
+  </div>
+
+
+  <!-- is-active needed to pop up-->
+  <div class="modal-container is-clipped">
+    <div class="modal" id="nutrition-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title" id="modal-title"></p>
+        </header>
+        <section class="modal-card-body">
+          <h4 class="title is-4" id="modal-servings">Number of servings:</h4>
+          <h5 class="subtitle is-5" id="modal-calories">calories per serving</h5>
+          <div class="columns">
+            <div class="column is-half">
+
+              <div class="columns is-mobile is-multiline is-gapless" id="amount-field">
+
+                <div class="column is-half">
+                  <strong></strong>
+                </div>
+                <div class="column is-half">
+                  <strong>Amount per serving</strong>
+                </div>
+                <!-- demo figures -->
+                <div class="column is-half">
+                  <strong>Fat</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="fat-amount"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Sat Fat</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="sat-amount"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Cholesterol</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="chol-amount"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Carbohydrates</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="carb-amount"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Sugars</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="sug-amount"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Protein</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="prot-amount"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Calcium</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="cal-amount"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="column is-half">
+              <div class="columns is-mobile is-multiline is-gapless" id="percent-field">
+
+                <div class="column is-half">
+                  <strong></strong>
+                </div>
+                <div class="column is-half">
+                  <strong>Percent% daily value</strong>
+                </div>
+
+                <!-- demo figures -->
+                <div class="column is-half">
+                  <strong>Fat</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="fat-daily"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Sat Fat</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="sat-daily"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Cholesterol</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="chol-daily"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Carbohydrates</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="carb-daily"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Protein</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="prot-daily"></p>
+                </div>
+                <div class="column is-half">
+                  <strong>Calcium</strong>
+                </div>
+                <div class="column is-half">
+                  <p id="cal-daily"></p>
+                </div>
+
+              </div>
+            </div>
+
           </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-4">Recipe Name takes up more that one line and looks a</p>
-                <p class="subtitle is-6">source</p>
-              </div>
-            </div>
-
-            <div class="content">
-              <ul>
-                <li>
-                  <strong>Cook Time: </strong>
-                  <p>45 minutes</p>
-                </li>
-                <li>
-                  <strong>Cook Time: </strong>
-                  <p>45 minutes</p>
-                </li>
-                <li>
-                  <strong>Cook Time: </strong>
-                  <p>45 minutes</p>
-                </li>
-              </ul>
-              <br>
-            </div>
-
-            <div class="columns is-centered is-multiline">
-              <div class="column card-button-column">
-                <button class="button is-success is-rounded">
-                  remove from cookbook
-                </button>
-              </div>
-              <div class="column is-three-quarters">
-                <button class="button is-success">
-                  remove from cookbook
-                </button>
-              </div>
-              <div class="column is-three-quarters">
-                <button class="button is-success">
-                  remove from cookbook
-                </button>
-              </div> -->
-
-
-
-
-
-            </div>
-          </div>
-        </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-danger" id="modal-close" aria-label="close">Close</button>
+        </footer>
       </div>
-
-
-
-
-
-
-
-
     </div>
   </div>
-  <div class="modal">
-   
-    <!-- is-active needed to pop up-->
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Modal title</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <!-- Content ... -->
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Save changes</button>
-        <button class="button">Cancel</button>
-      </footer>
-    </div>
-  </div>
+
+
+
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
@@ -165,7 +212,7 @@
       </p>
     </div>
   </footer>
-   
+
 </body>
 
 </html>

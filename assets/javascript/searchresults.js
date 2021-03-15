@@ -1,8 +1,6 @@
 
 var recipeID = '8ef87cb1';
 var recipeKey = 'bb685a0401f2fc75e31942def94ff23f';
-var nutritionID = '2b527145';
-var nutritionKey = 'c7d83e1d210fa0e3ac0038d0b9a3c8be';
 var searchForm = document.querySelector('#recipe-search-form');
 var searchInput = document.querySelector('#search-input');
 var resultsContainer = document.querySelector('#results-container');
@@ -30,8 +28,9 @@ function displayResults() {
             var recImage = data.hits[i].recipe.image;
             var recURL = data.hits[i].recipe.url;
             var recIngs = data.hits[i].recipe.ingredientLines;
+            var index = i;
 
-            renderResults(recName, recSource, recYeild, recTime, recImage, recURL, recIngs);
+            renderResults(recName, recSource, recYeild, recTime, recImage, recURL, recIngs, index);
           }
         });
       } else {
@@ -43,8 +42,8 @@ function displayResults() {
     });
 }
 
-//creates each search result block and assigns 
-function renderResults(recName, recSource, recYeild, recTime, recImage, recURL, recIngs) {
+//creates each search result block and assigns values from data pulled from GET request
+function renderResults(recName, recSource, recYeild, recTime, recImage, recURL, recIngs, index) {
   var resultBlock = document.createElement('div');
   resultBlock.setAttribute('class','columns');
   resultsContainer.appendChild(resultBlock);
