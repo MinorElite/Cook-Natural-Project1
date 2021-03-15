@@ -34,6 +34,7 @@ And when im shown the list I can save each recipe to my cookbook or visit the we
 When i go back to the site my saved recipes should be in my cookbook and when I click on it im shown more information
 
 # link: https://minorelite.github.io/Cook-Natural-Project1/
+# link :https://github.com/MinorElite/Cook-Natural-Project1
 
 ![Alt text](./assets/images/Homepage.png "Optional Title")
 
