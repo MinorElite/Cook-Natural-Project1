@@ -1,7 +1,8 @@
 # CookingNTRL
-USER STORY
+## USER STORY
 --------------
-As an out of shape quarantine user
+```
+AS an out of shape quarantined User
 
 I want an app that returns recipes based on an ingredient that I specify
 
@@ -23,21 +24,28 @@ When I revisit the site i can view my saved recipes
 
 And when I clicked on a saved recipe 
 
-I can view additional information on my selected recipe.
+I see a modal with the recipe information and nutrition facts.
+```
+## How It Works
 
-How it works
+Cooking**NTRL** is a website where people can search multiple cooking websites at once for recipes that include ingredients they specify in the search bar. 
 
 When I search for ingredients I get a list of recipes that use said ingredient
 
-And when im shown the list I can save each recipe to my cookbook or visit the website to see how to make it
+And when im shown the list I can save each recipe to **MyCookbook** or visit the website to see how to make it
 
-When i go back to the site my saved recipes should be in my cookbook and when I click on it im shown more information
+When i go back to the site my saved recipes should be in **MyCookbook** and when I click on it im shown more information
 
-# link: https://minorelite.github.io/Cook-Natural-Project1/
-# link :https://github.com/MinorElite/Cook-Natural-Project1
+## Future Developments 
+* User login credentials
+* Recommendations on recipes you might like!
+* Form to input your own recipe
+* More search criteria diet, total calories, number of servings etc..
+* Button that shares recipes to friends and family
+
+### link: https://minorelite.github.io/Cook-Natural-Project1/
+### link :https://github.com/MinorElite/Cook-Natural-Project1
 
 ![Alt text](./assets/images/Homepage.png "Optional Title")
-
-![Alt text](./assets/images/SearchResults.png "Optional Title")
-
+![Alt text](./assets/images/Searchresults.png "Optional Title")
 ![Alt text](./assets/images/MyCookbook.png "Optional Title")
