@@ -35,3 +35,9 @@
   width: 50%;
   background: #f1f1f1;
 }
+.form-box{
+  background-color: rgb(154, 212, 157);
+  border-radius: 20px;
+  position: relative;
+}
+
