@@ -27,6 +27,7 @@ When I click on a saved recipe,
 I see a modal with the recipe information and nutrition facts.
 
 # link: https://minorelite.github.io/Cook-Natural-Project1/
+# link :https://github.com/MinorElite/Cook-Natural-Project1
 
 ![Alt text](./assets/images/Homepage.png "Optional Title")
 
