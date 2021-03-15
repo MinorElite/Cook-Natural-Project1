@@ -22,3 +22,16 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+.navbar{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+#search-input {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 50%;
+  background: #f1f1f1;
+}
