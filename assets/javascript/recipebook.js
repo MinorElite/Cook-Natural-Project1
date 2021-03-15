@@ -2,42 +2,35 @@ var recipeID = '8ef87cb1';
 var recipeKey = 'bb685a0401f2fc75e31942def94ff23f';
 var nutritionID = '2b527145';
 var nutritionKey = 'c7d83e1d210fa0e3ac0038d0b9a3c8be';
-var searchForm = document.querySelector('#recipe-search-form');
-var searchInput = document.querySelector('#search-input');
-var resultsContainer = document.querySelector('#results-container');
-var recipeBookButton = document.querySelector('#recipe-book-button');
 var cardField = document.querySelector('#card-field');
-var recipeList = [];
-var searchIngredient;
+var nutritionModal = document.querySelector('#nutrition-modal');
+
 
 function displayCards() {
   savedRecipes = JSON.parse(localStorage.getItem('saved-recipes'));
   if (savedRecipes !== null) {
     recipeList = savedRecipes;
     for (var i = 0; i < recipeList.length; i++) {
-    var recLabel = recipeList[i].recipeLabel;
-    var recYield = recipeList[i].recipeYield;
-    var recSource = recipeList[i].recipeSource
-    var recTime = recipeList[i].recipeTime;
-    var recImage = recipeList[i].recipeImage;
-    var recIngs = recipeList[i].recipeIngredients;
-    var recUrl = recipeList[i].recipeUrl;
+      var recLabel = recipeList[i].recipeLabel;
+      var recYield = recipeList[i].recipeYield;
+      var recSource = recipeList[i].recipeSource
+      var recTime = recipeList[i].recipeTime;
+      var recImage = recipeList[i].recipeImage;
+      var recIngs = recipeList[i].recipeIngredients;
+      var recUrl = recipeList[i].recipeUrl;
+      var index = i;
 
-    renderCards(recLabel, recSource, recYield, recTime, recImage, recIngs, recUrl);
+      renderCards(recLabel, recSource, recYield, recTime, recImage, recIngs, recUrl, index);
     }
   } else {
     alert('There are no saved recipes');
   }
 
- 
+
 }
 
 
-function renderCards(name, source, yield, time, image, ingredients, url) {
-  console.log(name, yield, time, image, ingredients);
-  console.log('renderCards is being called')
-
-
+function renderCards(name, source, yield, time, image, ingredients, url, index) {
 
   //card column
   var cardColumn = document.createElement('div');
@@ -120,7 +113,7 @@ function renderCards(name, source, yield, time, image, ingredients, url) {
   cardButton1.setAttribute('class', 'button is-success is-rounded');
   cardButton1.textContent = 'View nutrition facts';
   cardBtnCol1.appendChild(cardButton1);
-  cardBtnCol1.addEventListener('click', function(){
+  cardBtnCol1.addEventListener('click', function () {
     getNutritionFacts(name, yield, ingredients);
   });
 
@@ -131,7 +124,7 @@ function renderCards(name, source, yield, time, image, ingredients, url) {
   cardButton2.setAttribute('class', 'button is-link is-rounded');
   cardButton2.textContent = 'Go to recipe';
   cardBtnCol2.appendChild(cardButton2);
-  cardButton2.addEventListener('click', function(){
+  cardButton2.addEventListener('click', function () {
     window.open(url);
   });
 
@@ -142,38 +135,95 @@ function renderCards(name, source, yield, time, image, ingredients, url) {
   cardButton3.setAttribute('class', 'button is-danger is-rounded');
   cardButton3.textContent = 'Remove';
   cardBtnCol3.appendChild(cardButton3);
+  cardButton3.addEventListener('click', function() {
+    removeRecipe(index)
+  })
 
 }
+function removeRecipe(i) {
+  recipeList.splice(i, 1);
+  localStorage.setItem('saved-recipes', JSON.stringify(recipeList));
+  document.location.reload();
+}
 
-function getNutritionFacts(title, yield, ingredients ) {
-  console.log('get nut facts is being called');
+function getNutritionFacts(title, yield, ingredients) {
+  console.log('get nutrition facts is being called');
 
-    var postURL = 'https://api.edamam.com/api/nutrition-details?app_id=' + nutritionID + '&app_key=' + nutritionKey;
-  
-    const data = {
-      "title": title,
-      "yield": "About" + yield + "servings",
-      "ingr": ingredients
-    }
-  
+  var postURL = 'https://api.edamam.com/api/nutrition-details?app_id=' + nutritionID + '&app_key=' + nutritionKey;
+
+  const data = {
+    "title": title,
+    "yield": "About" + yield + "servings",
+    "ingr": ingredients
+  }
+
   fetch(postURL, {
-    method: 'POST', 
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
   })
-  .then(response => response.json())
-  .then(data => {
-    console.log()
-    console.log('Success:', data);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-  
-  
+    .then(response => response.json())
+    .then(data => {
+      console.log()
+      console.log('Success:', data);
+      displayModal(title, data);
+      
+
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+
 }
+
+function displayModal(title, data) {
+  console.log(data.totalDaily)
+  var totNutrients = data.totalNutrients;
+  var totDaily = data.totalDaily;
+  var amountEl = document.querySelector('#amount-field');
+  var percentEl = document.querySelector('#percent-field');
+  nutritionModal.setAttribute('class', 'modal is-active');
+
+  var modalClose = document.querySelector('#modal-close');
+  modalClose.addEventListener('click', hideModal);
+
+
+  var modalTitle = document.querySelector('#modal-title');
+  modalTitle.textContent = title;
+
+  var modalServings = document.querySelector('#modal-servings');
+  modalServings.textContent = 'Number of servings: ' + data.yield;
+
+  var modalCalories = document.querySelector('#modal-calories');
+  modalCalories.textContent = Math.floor(data.calories / data.yield) + ' calories per serving';
+
+  document.querySelector('#fat-amount').textContent = Math.floor(data.totalNutrients.FAT.quantity / data.yield) + ' ' + data.totalNutrients.FAT.unit;
+  document.querySelector('#sat-amount').textContent = Math.floor(data.totalNutrients.FASAT.quantity / data.yield) + ' ' + data.totalNutrients.FASAT.unit;
+  document.querySelector('#chol-amount').textContent = Math.floor(data.totalNutrients.CHOLE.quantity / data.yield) + ' ' + data.totalNutrients.CHOLE.unit;
+  document.querySelector('#carb-amount').textContent = Math.floor(data.totalNutrients.CHOCDF.quantity / data.yield) + ' ' + data.totalNutrients.CHOCDF.unit;
+  document.querySelector('#sug-amount').textContent = Math.floor(data.totalNutrients.SUGAR.quantity / data.yield) + ' ' + data.totalNutrients.SUGAR.unit;
+  document.querySelector('#prot-amount').textContent = Math.floor(data.totalNutrients.PROCNT.quantity / data.yield) + ' ' + data.totalNutrients.PROCNT.unit;
+  document.querySelector('#cal-amount').textContent = Math.floor(data.totalNutrients.CA.quantity / data.yield) + ' ' + data.totalNutrients.CA.unit;
+
+  document.querySelector('#fat-daily').textContent = Math.floor(data.totalDaily.FAT.quantity / data.yield) + ' ' + data.totalDaily.FAT.unit;
+  document.querySelector('#sat-daily').textContent = Math.floor(data.totalDaily.FASAT.quantity / data.yield) + ' ' + data.totalDaily.FASAT.unit;
+  document.querySelector('#chol-daily').textContent = Math.floor(data.totalDaily.CHOLE.quantity / data.yield) + ' ' + data.totalDaily.CHOLE.unit;
+  document.querySelector('#carb-daily').textContent = Math.floor(data.totalDaily.CHOCDF.quantity / data.yield) + ' ' + data.totalDaily.CHOCDF.unit;
+  document.querySelector('#prot-daily').textContent = Math.floor(data.totalDaily.PROCNT.quantity / data.yield) + ' ' + data.totalDaily.PROCNT.unit;
+  document.querySelector('#cal-daily').textContent = Math.floor(data.totalDaily.CA.quantity / data.yield) + ' ' + data.totalDaily.CA.unit;
+
+
+
+}
+
+
+function hideModal() {
+  nutritionModal.setAttribute('class', 'modal');
+}
+
 
 displayCards();
 
