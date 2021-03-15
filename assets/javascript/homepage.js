@@ -13,10 +13,6 @@ var searchIngredient;
 
 searchForm.addEventListener('submit', submitIngredient); //eventlistener for form
 
-// recipeBookButton.addEventListener('click', function(){
-//   location.replace('./thirdpage.html')
-// })
-
 function saveIngredient() {
     localStorage.setItem('search-ingredient', JSON.stringify(searchIngredient));
   }

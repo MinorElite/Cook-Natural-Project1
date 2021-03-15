@@ -4,26 +4,25 @@
 ```
 AS an out of shape quarantined User
 
-I WANT a recipe based  on an ingredient I specify.
+I want an app that returns recipes based on an ingredient that I specify
 
-Also
+Also 
 
-I WANT nutrition facts for the recipe 
+I want nutritional information on each recipe I select
 
-SO THAT I can monitor how healthy the meal is
+So that I can monitor how healthy the meal is 
 
-GIVEN that I know an ingredient,
+Given the ingredients I select
 
-WHEN I search for recipes
+When I Search an ingredient 
 
-THEN I receive a list of applicable recipes
+Then I recieve a list of applicable recipes
 
-THEN I can save recipes to my profile
+Then I can save each recipe to my profile
 
-WHEN I revisit the site I can view my saved recipes and 
-nutrition facts for those recipe
+When I revisit the site i can view my saved recipes
 
-When I click on a saved recipe, 
+And when I clicked on a saved recipe 
 
 I see a modal with the recipe information and nutrition facts.
 ```
