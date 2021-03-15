@@ -1,30 +1,37 @@
 # CookingNTRL
 USER STORY
 --------------
-AS an out of shape quarantined User
+As an out of shape quarantine user
 
-I WANT a recipe based  on an ingredient I specify.
+I want a app that based on the ingredients I specify give me a recipe
 
-Also
+Also 
 
-I WANT nutrition facts for the recipe 
+I want nutritional information on each recipe I select
 
-SO THAT I can monitor how healthy the meal is
+So that i can monitor how healthy the meal is 
 
-GIVEN that I know an ingredient,
+Given the ingredients I select
 
-WHEN I search for recipes
+When i Search an ingredient 
 
-THEN I receive a list of applicable recipes
+Then i recieve a list of applicable recipes
 
-THEN I can save recipes to my profile
+Then i can save each recipe to my profile
 
-WHEN I revisit the site I can view my saved recipes and 
-nutrition facts for those recipe
+When i revisit the site i can view my saved recipes
 
-When I click on a saved recipe, 
+And when i clicked on a saved recipe 
 
-I see a modal with the recipe information and nutrition facts.
+I can view additional information on my selected recipe.
+
+How it works
+
+When I search for ingredients I get a list of recipes that use said ingredient
+
+And when im shown the list I can save each recipe to my cookbook or visit the website to see how to make it
+
+When i go back to the site my saved recipes should be in my cookbook and when I click on it im shown more information
 
 # link: https://minorelite.github.io/Cook-Natural-Project1/
 
